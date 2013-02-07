@@ -46,8 +46,6 @@ import android.text.ClipboardManager;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
@@ -351,13 +349,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
         case PRODUCT_SEARCH_LINK:
           handleDecodeExternally(rawResult, resultHandler, barcode);
           break;
-        case ZXING_LINK:
-          if (returnUrlTemplate == null){
-            handleDecodeInternally(rawResult, resultHandler, barcode);
-          } else {
-            handleDecodeExternally(rawResult, resultHandler, barcode);
-          }
-          break;
+       
         case NONE:
           SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
           if (prefs.getBoolean(PreferencesActivity.KEY_BULK_MODE, false)) {
