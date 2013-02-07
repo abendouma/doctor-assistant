@@ -1,8 +1,6 @@
 package com.enclave.doctorassistant;
 
-import org.w3c.dom.Text;
 
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
