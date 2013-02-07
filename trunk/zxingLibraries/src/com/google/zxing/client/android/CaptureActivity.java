@@ -21,14 +21,9 @@ import com.google.zxing.Result;
 import com.google.zxing.ResultMetadataType;
 import com.google.zxing.ResultPoint;
 import com.google.zxing.client.android.camera.CameraManager;
-import com.google.zxing.client.android.history.HistoryActivity;
-import com.google.zxing.client.android.history.HistoryItem;
-import com.google.zxing.client.android.history.HistoryManager;
 import com.google.zxing.client.android.result.ResultButtonListener;
 import com.google.zxing.client.android.result.ResultHandler;
 import com.google.zxing.client.android.result.ResultHandlerFactory;
-import com.google.zxing.client.android.result.supplement.SupplementalInfoRetriever;
-
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -124,7 +119,6 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
   private Collection<BarcodeFormat> decodeFormats;
   private String characterSet;
   private String versionName;
-  private HistoryManager historyManager;
   private InactivityTimer inactivityTimer;
   private BeepManager beepManager;
 
@@ -159,8 +153,6 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     setContentView(R.layout.capture);
 
     hasSurface = false;
-    historyManager = new HistoryManager(this);
-    historyManager.trimHistory();
     inactivityTimer = new InactivityTimer(this);
     beepManager = new BeepManager(this);
 
@@ -349,8 +341,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     switch (item.getItemId()) {
           case HISTORY_ID:
          intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
-        intent.setClassName(this, HistoryActivity.class.getName());
-        startActivityForResult(intent, HISTORY_REQUEST_CODE);
+         startActivityForResult(intent, HISTORY_REQUEST_CODE);
         break;
       case SETTINGS_ID:
         intent.setClassName(this, PreferencesActivity.class.getName());
@@ -381,9 +372,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
       if (requestCode == HISTORY_REQUEST_CODE) {
         int itemNumber = intent.getIntExtra(Intents.History.ITEM_NUMBER, -1);
         if (itemNumber >= 0) {
-          HistoryItem historyItem = historyManager.buildHistoryItem(itemNumber);
-          decodeOrStoreSavedBitmap(null, historyItem.getResult());
-        }
+       }
       }
     }
   }
@@ -435,8 +424,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     inactivityTimer.onActivity();
     lastResult = rawResult;
     ResultHandler resultHandler = ResultHandlerFactory.makeResultHandler(this, rawResult);
-    historyManager.addHistoryItem(rawResult, resultHandler);
-
+  
     if (barcode == null) {
       // This is from history -- no saved barcode
       handleDecodeInternally(rawResult, resultHandler, null);
@@ -567,12 +555,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     supplementTextView.setOnClickListener(null);
     if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean(
         PreferencesActivity.KEY_SUPPLEMENTAL, true)) {
-      SupplementalInfoRetriever.maybeInvokeRetrieval(supplementTextView,
-                                                     resultHandler.getResult(),
-                                                     handler,
-                                                     historyManager,
-                                                     this);
-    }
+   }
 
     int buttonCount = resultHandler.getButtonCount();
     ViewGroup buttonView = (ViewGroup) findViewById(R.id.result_button_view);
