@@ -1,0 +1,27 @@
+barcodeBt.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent("com.google.zxing.client.android.SCAN");
+				intent.putExtra("SCAN_MODE", "PRODUCT_MODE");
+				startActivityForResult(intent, 1);
+			}
+		});
+		
+		
+	}
+
+	@Override
+	 public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+ 	   if (requestCode == 1) {
+ 	      if (resultCode == RESULT_OK) {
+ 	        productID.setText( intent.getStringExtra("SCAN_RESULT").toString());
+ 	         // Handle successful scan
+ 	    
+ 	      } else if (resultCode == RESULT_CANCELED) {
+ 	         // Handle cancel
+ 	      }
+ 	   }
+ 	}
+	
