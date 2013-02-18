@@ -1,0 +1,12 @@
+{
+"patient": [
+{ "id":"12345" ,
+"age":"22"
+ "allergy":"all1|all2",
+ "chronic":"diabetic1|diabetic2",
+ "taking":"drug1|drug2"
+ }
+]
+}
+
+//Delete line  break to optimize QR code
