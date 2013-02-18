@@ -50,8 +50,8 @@ public class MainActivity extends Activity implements  OnClickListener{
 	    	  try {
 	    			JSONObject json=new JSONObject(result);
 	    			
-	    	JSONArray contacts = json.getJSONArray("patient");
-				JSONObject c = contacts.getJSONObject(0);
+	    	JSONArray patient = json.getJSONArray("patient");
+				JSONObject c = patient.getJSONObject(0);
 				patientID.setText(c.getString("id"));
 			String allergys =c.getString("allergy").replace("|", "<br/>");
 			String chronic=c.getString("chronic").replace("|", "<br/>");
