@@ -1,12 +1,13 @@
 {
 "patient": [
 { "id":"12345" ,
-"age":"22"
- "allergy":"all1|all2",
+"age":"22", "allergy":"all1|all2",
  "chronic":"diabetic1|diabetic2",
  "taking":"drug1|drug2"
  }
 ]
 }
 
+Example
+[http://code.google.com/p/doctor-assistant/ https://lh5.googleusercontent.com/-2CmHMVBZq-0/USH76EK3qhI/AAAAAAAAAgM/hCK1l9BmuWI/ImgPluz.com-chart.png]
 //Delete line  break to optimize QR code
