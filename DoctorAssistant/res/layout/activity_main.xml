@@ -115,7 +115,7 @@ android:orientation="horizontal">
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:maxLines="15"
-        android:text="Diabetic 1 \n ass" 
+        android:text="Diabetic 1" 
         android:layout_gravity="center_vertical"
         android:gravity="center"/>
               
