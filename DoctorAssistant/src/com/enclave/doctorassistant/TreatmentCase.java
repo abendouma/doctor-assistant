@@ -120,7 +120,9 @@ public class TreatmentCase extends Activity implements  OnClickListener{
 					@Override
 					public void onClick(View v) {
 						// TODO Auto-generated method stub
-						 patientID.setText(tv.getText());
+						 Intent in=new Intent(getApplicationContext(), BloodTestDetail.class);
+						 in.putExtra("Date", tv.getText());
+						 startActivity(in);
 			        	
 					}
 				});
