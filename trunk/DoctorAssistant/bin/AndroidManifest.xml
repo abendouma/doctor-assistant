@@ -54,6 +54,11 @@
             android:label="@string/treatment_case" 
             android:screenOrientation="portrait">
         </activity>
+                 <activity
+            android:name="com.enclave.doctorassistant.BloodTestDetail"
+            android:label="@string/treatment_case" 
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>
