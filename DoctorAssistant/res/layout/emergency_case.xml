@@ -1,0 +1,133 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="52dp"
+        android:background="@drawable/bar" >
+
+        <Button
+            android:id="@+id/backbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/back"
+            android:gravity="center_vertical" >
+        </Button>
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="5dp" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="100" 
+            >
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:layout_weight="30"
+                android:src="@drawable/patient" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" 
+                android:layout_weight="34">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:text="@string/patient_id" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center"
+                    android:text="@string/patient_age" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="40" >
+
+                <TextView
+                    android:id="@+id/tvPatientID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical" />
+
+                <TextView
+                    android:id="@+id/tvPatientAge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="28dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/bar2"
+        android:gravity="center"
+        android:text="Allergies" />
+
+    <TextView
+        android:id="@+id/allergy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Allergy 1 " />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="28dp"
+        android:layout_gravity="center"
+        android:background="@drawable/bar2"
+        android:gravity="center"
+        android:text="Chronic Diseases" />
+
+    <TextView
+        android:id="@+id/chronic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="15"
+        android:text="Diabetic 1" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="28dp"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/bar2"
+        android:gravity="center"
+        android:text="Drugs Taking" />
+
+    <TextView
+        android:id="@+id/drug"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Drug taking " />
+
+</LinearLayout>
