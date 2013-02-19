@@ -49,9 +49,13 @@ public class Menu extends Activity{
 				 Intent in;
 				// TODO Auto-generated method stub
 				switch(position){
-				case 0: in=new Intent(getApplicationContext(),MainActivity.class);
+				case 0: in=new Intent(getApplicationContext(),EmergencyCase.class);
 						startActivity(in);
-				
+						break;
+				case 1: in=new Intent(getApplicationContext(),TreatmentCase.class);
+				startActivity(in);
+				break;
+		
 				}
 				
 				

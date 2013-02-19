@@ -17,7 +17,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class MainActivity extends Activity implements  OnClickListener{
+public class EmergencyCase extends Activity implements  OnClickListener{
 
 	Button backbtn;
 	
@@ -25,15 +25,15 @@ public class MainActivity extends Activity implements  OnClickListener{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.emergency_case);
 		backbtn=(Button)findViewById(R.id.backbtn);
 		backbtn.setOnClickListener(this);
 		
 		chronic=(TextView)findViewById(R.id.chronic);
 		allergy=(TextView)findViewById(R.id.allergy);
 		drug=(TextView)findViewById(R.id.drug);
-		age=(TextView)findViewById(R.id.tvpatientage);
-		patientID=(TextView)findViewById(R.id.tvpatientID);
+		age=(TextView)findViewById(R.id.tvPatientAge);
+		patientID=(TextView)findViewById(R.id.tvPatientID);
 		
 		Intent intent = new Intent("com.google.zxing.client.android.SCAN");
 		intent.putExtra("SCAN_MODE", "QR_CODE_MODE");
@@ -52,7 +52,7 @@ public class MainActivity extends Activity implements  OnClickListener{
 	    			
 	    	JSONArray patient = json.getJSONArray("patient");
 				JSONObject c = patient.getJSONObject(0);
-				patientID.setText(c.getString("id"));
+			this.patientID.setText(c.getString("id"));
 			String allergys =c.getString("allergy").replace("|", "<br/>");
 			String chronic=c.getString("chronic").replace("|", "<br/>");
 			String taking =c.getString("taking").replace("|", "<br/>");
@@ -71,9 +71,7 @@ public class MainActivity extends Activity implements  OnClickListener{
 	    
 	      } else if (resultCode == RESULT_CANCELED) {
 	         // Handle cancel
-	    	  LinearLayout layout = (LinearLayout)findViewById(R.id.mainlayout);
-	    	  layout.setOrientation(LinearLayout.VERTICAL);
-	    	  //finish();
+	    	finish();
 	      }
 	   }
 	}
