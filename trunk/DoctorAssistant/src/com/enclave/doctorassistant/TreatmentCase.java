@@ -6,6 +6,7 @@ import org.json.JSONObject;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.Gravity;
@@ -99,27 +100,27 @@ public class TreatmentCase extends Activity implements  OnClickListener{
 	      //  finish();
 	    		for(int i=0;i<9;i++)
 				{
-				TextView tv=new TextView(this);
-				TableRow trDetail=new TableRow(this);
+				final TextView tv=new TextView(this);
+				final TableRow trDetail=new TableRow(this);
 				TextView tvAction=new TextView(this);
 				tvAction.setText("Xray Scan");
 				tv.setText("0"+(i+1)+"/02/2012");
 				
 				tv.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT,LayoutParams.WRAP_CONTENT,25));
 				tv.setGravity(Gravity.CENTER);
-				
 				tvAction.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT,LayoutParams.WRAP_CONTENT,75));
 				tvAction.setGravity(Gravity.CENTER);
 				
 				trDetail.addView(tv);
 				trDetail.addView(tvAction);
+				if(i%2!=0) {trDetail.setBackgroundColor(Color.GRAY);
+				tvAction.setText("Blood test");}
 				trDetail.setOnClickListener(new OnClickListener() {
 					
 					@Override
 					public void onClick(View v) {
 						// TODO Auto-generated method stub
-						  String currenttext = ((TextView)v).getText().toString();
-			        	  patientID.setText(currenttext);
+						 patientID.setText(tv.getText());
 			        	
 					}
 				});
