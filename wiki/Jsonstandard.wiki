@@ -2,5 +2,5 @@
 "chronic":"Diabetes|Heart disease|Asthma|High Blood Pressure ", "taking":"Penicilins" }
 
 Example
-[http://code.google.com/p/doctor-assistant/ http://chart.apis.google.com/chart?cht=qr&chs=350x350&chld=L&choe=UTF-8&chl=%7B+%22id%22%3A%2212345%22+%2C+%22age%22%3A%2222%22%2C+%22allergy%22%3A%22Allergy+1%7CAllergy+2%22%2C%0A%22chronic%22%3A%22Diabetes%7CHeart+disease%7CAsthma%7CHigh+Blood+Pressure+%22%2C+%22taking%22%3A%22Penicilins%22+%7D]
+[http://code.google.com/p/doctor-assistant/ https://lh3.googleusercontent.com/-RJE4VBHyxVM/USSFn4G3kPI/AAAAAAAAAiE/246FHyJ0Qo0/ImgPluz.com-chart.png]
 //Delete line  break to optimize QR code
