@@ -1,13 +1,6 @@
-{
-"patient": [
-{ "id":"12345" ,
-"age":"22", "allergy":"all1|all2",
- "chronic":"diabetic1|diabetic2",
- "taking":"drug1|drug2"
- }
-]
-}
+{ "id":"12345" , "age":"22", "allergy":"Allergy 1|Allergy 2",
+"chronic":"Diabetes|Heart disease|Asthma|High Blood Pressure ", "taking":"Penicilins" }
 
 Example
-[http://code.google.com/p/doctor-assistant/ https://lh5.googleusercontent.com/-2CmHMVBZq-0/USH76EK3qhI/AAAAAAAAAgM/hCK1l9BmuWI/ImgPluz.com-chart.png]
+[http://code.google.com/p/doctor-assistant/ http://chart.apis.google.com/chart?cht=qr&chs=350x350&chld=L&choe=UTF-8&chl=%7B+%22id%22%3A%2212345%22+%2C+%22age%22%3A%2222%22%2C+%22allergy%22%3A%22Allergy+1%7CAllergy+2%22%2C%0A%22chronic%22%3A%22Diabetes%7CHeart+disease%7CAsthma%7CHigh+Blood+Pressure+%22%2C+%22taking%22%3A%22Penicilins%22+%7D]
 //Delete line  break to optimize QR code
