@@ -7,6 +7,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -35,7 +36,12 @@ public class BloodTestDetail extends Activity {
 		tblResult = (TableLayout) findViewById(R.id.tab);
 		patientID = (TextView) findViewById(R.id.tvPatientID);
 		age = (TextView) findViewById(R.id.tvPatientAge);
+		age.setText(this.getIntent().getStringExtra("Age"));
 		date = (TextView) findViewById(R.id.tvDateTest);
+		date.setText(this.getIntent().getStringExtra("Date"));
+		patientID.setText(this.getIntent().getStringExtra("ID"));
+		
+		
 		String[] components = { "WBC Count", "Red Blood Cells Count", "HGB",
 				"Hematocrit", "MCV", "RDW, RBC", "Platelets Count" };
 		String[] values = { "6.3", "5.01", "14.5", "44.8", "89", "13.6", "155" };
@@ -50,23 +56,23 @@ public class BloodTestDetail extends Activity {
 			tvStandard.setText(Standards[i]);
 			tvcomponent.setText(components[i]);
 			tvvalue.setText(values[i]);
+			
+			LayoutParams params=new LayoutParams(new LayoutParams(LayoutParams.FILL_PARENT,LayoutParams.WRAP_CONTENT,30));
+			params.rightMargin=1;
+			
 			if (i % 2 != 0)
 				trDetail.setBackgroundColor(Color.parseColor("#09FF00"));
-			tvvalue.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT,
-					LayoutParams.WRAP_CONTENT, 30));
+			//tvvalue.setLayoutParams(params);
 			tvvalue.setGravity(Gravity.CENTER);
-
-			tvcomponent.setLayoutParams(new LayoutParams(
-					LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT, 30));
-			tvcomponent.setGravity(Gravity.CENTER);
+			
+			//tvcomponent.setLayoutParams(params);
 
 			tvStandard.setLayoutParams(new LayoutParams(
 					LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT, 40));
 			tvStandard.setGravity(Gravity.CENTER);
-
-			trDetail.addView(tvcomponent);
-			date.setText(this.getIntent().getStringExtra("Date"));
-			trDetail.addView(tvvalue);
+			
+			trDetail.addView(tvcomponent,params);
+			trDetail.addView(tvvalue,params);
 			trDetail.addView(tvStandard);
 			tblResult.addView(trDetail, new TableLayout.LayoutParams(
 					LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT, 100));

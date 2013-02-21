@@ -19,7 +19,7 @@ import android.widget.TextView;
 public class XrayScanDetail extends Activity {
 	private Gallery gallery;
 	private ImageView imgView;
-	TextView Date;
+	TextView Date,Age, patientID;
 	Button backbtn;
 	private Integer[] Imgid = { R.drawable.xray_1, R.drawable.xray_3 };
 
@@ -29,6 +29,14 @@ public class XrayScanDetail extends Activity {
 		setContentView(R.layout.xray_detail);
 		Date = (TextView) findViewById(R.id.tvdate);
 		Date.setText(this.getIntent().getStringExtra("Date"));
+		
+		Age=(TextView)findViewById(R.id.tvPatientAge);
+		Age.setText(this.getIntent().getStringExtra("Age"));
+		
+		patientID=(TextView)findViewById(R.id.tvPatientID);
+		patientID.setText(this.getIntent().getStringExtra("ID"));
+		
+		
 		imgView = (ImageView) findViewById(R.id.ImageView01);
 		imgView.setImageResource(Imgid[0]);
 		backbtn = (Button) findViewById(R.id.backbtn);

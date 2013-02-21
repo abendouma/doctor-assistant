@@ -105,9 +105,8 @@
 
             <TextView
                 android:id="@+id/allergy"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:text="Allergy 1 " />
 
             <TextView
@@ -120,7 +119,7 @@
 
             <TextView
                 android:id="@+id/chronic"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:maxLines="15"
                 android:text="Diabetic 1" />
@@ -135,7 +134,7 @@
 
             <TextView
                 android:id="@+id/drug"
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="Drug taking " />
         </LinearLayout>

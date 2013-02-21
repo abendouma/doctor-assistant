@@ -64,6 +64,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Date Test: " />
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Doctor: " />
         </LinearLayout>
 
         <View
@@ -101,6 +106,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical" />
+            <TextView
+                android:id="@+id/tvdoctor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical" 
+                android:text="Dr. Quinn"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -110,18 +121,6 @@
         android:background="@drawable/bar2"
         android:gravity="center"
         android:text="Xray Scan Result" />
-
-    <TextView
-        android:id="@+id/doctor_comment"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/doctor_coment"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/doctor_comment"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
 
     <Gallery
         android:id="@+id/gallery1"
