@@ -16,34 +16,34 @@ import android.widget.Gallery;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class XrayScanDetail extends Activity{
+public class XrayScanDetail extends Activity {
 	private Gallery gallery;
 	private ImageView imgView;
 	TextView Date;
 	Button backbtn;
-	private Integer[] Imgid = { R.drawable.xray_1,R.drawable.xray_3 };
+	private Integer[] Imgid = { R.drawable.xray_1, R.drawable.xray_3 };
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.xray_detail);
-		Date=(TextView)findViewById(R.id.tvdate);
+		Date = (TextView) findViewById(R.id.tvdate);
 		Date.setText(this.getIntent().getStringExtra("Date"));
 		imgView = (ImageView) findViewById(R.id.ImageView01);
 		imgView.setImageResource(Imgid[0]);
-		backbtn=(Button)findViewById(R.id.backbtn);
-		
+		backbtn = (Button) findViewById(R.id.backbtn);
+
 		backbtn.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-			finish();	
+				finish();
 			}
 		});
 		gallery = (Gallery) findViewById(R.id.gallery1);
 		gallery.setAdapter(new AddImgAdp(this));
-		
+
 		gallery.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView parent, View v, int position,
 					long id) {
@@ -81,16 +81,14 @@ public class XrayScanDetail extends Activity{
 			ImageView imgView = new ImageView(cont);
 
 			imgView.setImageResource(Imgid[position]);
-			imgView.setLayoutParams(new Gallery.LayoutParams(150,LayoutParams.MATCH_PARENT));
-			
+			imgView.setLayoutParams(new Gallery.LayoutParams(150,
+					LayoutParams.MATCH_PARENT));
+
 			imgView.setScaleType(ImageView.ScaleType.FIT_XY);
 			imgView.setBackgroundResource(GalItemBg);
 
 			return imgView;
 		}
 	}
-
-
-
 
 }
