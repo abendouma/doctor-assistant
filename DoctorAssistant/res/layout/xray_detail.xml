@@ -111,27 +111,26 @@
         android:gravity="center"
         android:text="Xray Scan Result" />
 
-    
-    
-<TextView 
-    android:id="@+id/doctor_comment"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:textStyle="bold"
-    android:text="@string/doctor_coment"/>
+    <TextView
+        android:id="@+id/doctor_comment"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/doctor_coment"
+        android:textStyle="bold" />
 
-<TextView 
-    android:id="@+id/doctor_comment"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/doctor_comment"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
     <Gallery
         android:id="@+id/gallery1"
         android:layout_width="fill_parent"
-     android:layout_height="75dp"
-         />
+        android:layout_height="75dp" />
 
     <ImageView
         android:id="@+id/ImageView01"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" />
+
 </LinearLayout>

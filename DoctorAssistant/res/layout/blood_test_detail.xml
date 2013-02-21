@@ -1,165 +1,160 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/mainlayout"
     android:orientation="vertical"
     tools:context=".MainActivity" >
 
-<LinearLayout
-    android:layout_width="fill_parent"
-    android:layout_height="52dp"
-    android:background="@drawable/bar" >
-
-    <Button
-        android:id="@+id/backbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:background="@drawable/back"
-        android:gravity="center_vertical" >
-        
-    </Button>
-    
-</LinearLayout>
-
-         <View android:layout_width="fill_parent"
-    android:layout_height="5dp"/>
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center_horizontal"
-    android:orientation="horizontal"
-    android:weightSum="100"
-	android:gravity="center">
-    <ImageView 
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="40"
-        android:src="@drawable/patient"/>
     <LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-android:orientation="vertical"
-	android:layout_weight="30">
-  
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/patient_id" />
-
-    <TextView 
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="@string/patient_name" 
-		/>
-       <TextView 
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="@string/patient_age" 
-        />
-              <TextView 
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="Date Test: " 
-        />
-    </LinearLayout>
-   <View android:layout_width="3dp"
-    android:layout_height="fill_parent"/>
-      <LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-android:orientation="vertical"
-android:layout_weight="30">
-      <TextView 
-        android:id="@+id/tvPatientID"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_gravity="center_vertical"
-		/>
-        
-
-        <TextView 
-            android:id="@+id/tvPatientName"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:text="John Doe"/>
-   
-        <TextView 
-            android:id="@+id/tvPatientAge"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:text="45"/>
-        <TextView 
-            android:id="@+id/tvDateTest"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_gravity="center_vertical"
-  />
-    </LinearLayout>
-</LinearLayout>
-
-<TextView
-    android:layout_width="fill_parent"
-    android:layout_height="28dp"
-    android:background="@drawable/bar2"
-    android:gravity="center"
-    android:text="Blood Test Result" />
-
-<TableLayout 
-    xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
+        android:layout_height="52dp"
+        android:background="@drawable/bar" >
+
+        <Button
+            android:id="@+id/backbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/back"
+            android:gravity="center_vertical" >
+        </Button>
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="5dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tab"       
-        >
-    
-      <TableRow
-           android:id="@+id/tableRow3"
-          android:layout_width="fill_parent"
-          android:layout_height="wrap_content"
-          android:weightSum="100"
-         android:layout_margin="1dp">
-                  
-          <TextView 
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="Component"
-              android:gravity="center_horizontal"
-              android:layout_gravity="center_vertical"
-              android:layout_weight="30"
-               android:textColor="#ffffff"
-               android:layout_margin="1dp"
-              android:background="#06BD00"
-              />
-         <TextView 
-             
-              android:gravity="center_horizontal"
-              android:layout_width="fill_parent"
-              android:layout_height="wrap_content"
-              android:layout_weight="30"
-               android:textColor="#ffffff"
-              android:layout_gravity="center_vertical"
-              android:text="Result"
-              android:background="#06BD00"
-              
-              />
-           <TextView 
-             
-              android:gravity="center_horizontal"
-              android:layout_width="fill_parent"
-              android:layout_height="wrap_content"
-              android:textColor="#ffffff"
-              android:layout_weight="40"
-              android:layout_gravity="center_vertical"
-              android:text="Standard Range"
-              android:background="#06BD00"
-              
-              />
-     
-          </TableRow>    
-    
-</TableLayout>
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="100" >
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="40"
+            android:src="@drawable/patient" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="30"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/patient_id" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/patient_name" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/patient_age" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date Test: " />
+        </LinearLayout>
+
+        <View
+            android:layout_width="3dp"
+            android:layout_height="fill_parent" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="30"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tvPatientID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical" />
+
+            <TextView
+                android:id="@+id/tvPatientName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="John Doe" />
+
+            <TextView
+                android:id="@+id/tvPatientAge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="45" />
+
+            <TextView
+                android:id="@+id/tvDateTest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="28dp"
+        android:background="@drawable/bar2"
+        android:gravity="center"
+        android:text="Blood Test Result" />
+
+    <TableLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/tab"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:weightSum="100" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="1dp"
+                android:layout_weight="30"
+                android:background="#06BD00"
+                android:gravity="center_horizontal"
+                android:text="Component"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="30"
+                android:background="#06BD00"
+                android:gravity="center_horizontal"
+                android:text="Result"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="40"
+                android:background="#06BD00"
+                android:gravity="center_horizontal"
+                android:text="Standard Range"
+                android:textColor="#ffffff" />
+        </TableRow>
+    </TableLayout>
 
 </LinearLayout>
