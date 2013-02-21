@@ -40,6 +40,7 @@ public class TreatmentCase extends Activity implements  OnClickListener{
 		allergy=(TextView)findViewById(R.id.allergy);
 		chronic=(TextView)findViewById(R.id.chronic);
 		
+		
 		Intent intent = new Intent("com.google.zxing.client.android.SCAN");
 		intent.putExtra("SCAN_MODE", "QR_CODE_MODE");
 		startActivityForResult(intent, 1);
@@ -56,10 +57,8 @@ public class TreatmentCase extends Activity implements  OnClickListener{
 	         // Handle successful scan
 	    	  String result=intent.getStringExtra("SCAN_RESULT").toString();
 	    	  try {
-	    			JSONObject json=new JSONObject(result);
+	    			JSONObject c=new JSONObject(result);
 	    			
-	    	JSONArray patient = json.getJSONArray("patient");
-				JSONObject c = patient.getJSONObject(0);
 			this.patientID.setText(c.getString("id"));
 			String allergys =c.getString("allergy").replace("|", "<br/>");
 			String chronic=c.getString("chronic").replace("|", "<br/>");
@@ -68,25 +67,54 @@ public class TreatmentCase extends Activity implements  OnClickListener{
 			this.allergy.setText(Html.fromHtml(allergys));
 			this.chronic.setText(Html.fromHtml(chronic));
 			this.drug.setText(Html.fromHtml(taking));
-			for(int i=0;i<9;i++)
+
+			for(int i=0;i<3;i++)
 			{
-			TextView tv=new TextView(this);
-			TableRow trDetail=new TableRow(this);
-			TextView tvAction=new TextView(this);
-			tvAction.setText("Xray Scan");
-			tv.setText("0"+(i+1)+"/02/2012");
+			final TextView tv=new TextView(this);
+			final TableRow trDetail=new TableRow(this);
+			final TextView tvAction=new TextView(this);
+			
+			tv.setText((20-i)+"/02/2012");
+			
+			if(i==1)
+				tvAction.setText("Blood test");
+				else if(i==2)
+				tvAction.setText("Hospitalization");
+				else
+				tvAction.setText("Xray Scan");
+			if(i%2!=0) 
+			trDetail.setBackgroundColor(Color.GRAY);
 			
 			tv.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT,LayoutParams.WRAP_CONTENT,25));
 			tv.setGravity(Gravity.CENTER);
-			
 			tvAction.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT,LayoutParams.WRAP_CONTENT,75));
 			tvAction.setGravity(Gravity.CENTER);
-			
 			trDetail.addView(tv);
 			trDetail.addView(tvAction);
+
+			trDetail.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					Intent in;
+					// TODO Auto-generated method stub
+					if(tvAction.getText()=="Blood test")
+					 in=new Intent(getApplicationContext(), BloodTestDetail.class);
+					else if(tvAction.getText()=="Hospitalization")
+					 in=new Intent(getApplicationContext(),RecordDetail.class);
+					else
+					 in=new Intent(getApplicationContext(),XrayScanDetail.class);
+						
+					in.putExtra("ID", patientID.getText());
+					in.putExtra("Date", tv.getText());
+					 startActivity(in);
+		        	
+				}
+			});
 			tlrecent.addView(trDetail,new TableLayout.LayoutParams(
 	                LayoutParams.FILL_PARENT,
 	                LayoutParams.WRAP_CONTENT,100));
+			
 			}
 				  
 			} catch (JSONException e) {
@@ -97,39 +125,57 @@ public class TreatmentCase extends Activity implements  OnClickListener{
 	        
 	    
 	      } else if (resultCode == RESULT_CANCELED) {
-	      //  finish();
-	    		for(int i=0;i<9;i++)
-				{
-				final TextView tv=new TextView(this);
-				final TableRow trDetail=new TableRow(this);
-				TextView tvAction=new TextView(this);
-				tvAction.setText("Xray Scan");
-				tv.setText("0"+(i+1)+"/02/2012");
-				
-				tv.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT,LayoutParams.WRAP_CONTENT,25));
-				tv.setGravity(Gravity.CENTER);
-				tvAction.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT,LayoutParams.WRAP_CONTENT,75));
-				tvAction.setGravity(Gravity.CENTER);
-				
-				trDetail.addView(tv);
-				trDetail.addView(tvAction);
-				if(i%2!=0) {trDetail.setBackgroundColor(Color.GRAY);
-				tvAction.setText("Blood test");}
-				trDetail.setOnClickListener(new OnClickListener() {
-					
-					@Override
-					public void onClick(View v) {
-						// TODO Auto-generated method stub
-						 Intent in=new Intent(getApplicationContext(), BloodTestDetail.class);
-						 in.putExtra("Date", tv.getText());
-						 startActivity(in);
-			        	
-					}
-				});
-				tlrecent.addView(trDetail,new TableLayout.LayoutParams(
-		                LayoutParams.FILL_PARENT,
-		                LayoutParams.WRAP_CONTENT,100));
-				}
+	    	  
+
+	  		for(int i=0;i<3;i++)
+	  		{
+	  		final TextView tv=new TextView(this);
+	  		final TableRow trDetail=new TableRow(this);
+	  		final TextView tvAction=new TextView(this);
+	  		
+	  		tv.setText((20-i)+"/02/2012");
+	  		
+	  		if(i==1)
+	  			tvAction.setText("Blood test");
+	  			else if(i==2)
+	  			tvAction.setText("Hospitalization");
+	  			else
+	  			tvAction.setText("Xray Scan");
+	  		if(i%2!=0) 
+	  		trDetail.setBackgroundColor(Color.GRAY);
+	  		
+	  		tv.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT,LayoutParams.WRAP_CONTENT,25));
+	  		tv.setGravity(Gravity.CENTER);
+	  		tvAction.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT,LayoutParams.WRAP_CONTENT,75));
+	  		tvAction.setGravity(Gravity.CENTER);
+	  		trDetail.addView(tv);
+	  		trDetail.addView(tvAction);
+
+	  		trDetail.setOnClickListener(new OnClickListener() {
+	  			
+	  			@Override
+	  			public void onClick(View v) {
+	  				Intent in;
+	  				// TODO Auto-generated method stub
+	  				if(tvAction.getText()=="Blood test")
+	  				 in=new Intent(getApplicationContext(), BloodTestDetail.class);
+	  				else if(tvAction.getText()=="Hospitalization")
+	  				 in=new Intent(getApplicationContext(),RecordDetail.class);
+	  				else
+	  				 in=new Intent(getApplicationContext(),XrayScanDetail.class);
+	  					
+	  				in.putExtra("ID", patientID.getText());
+	  				in.putExtra("Date", tv.getText());
+	  				 startActivity(in);
+	  	        	
+	  			}
+	  		});
+	  		tlrecent.addView(trDetail,new TableLayout.LayoutParams(
+	                  LayoutParams.FILL_PARENT,
+	                  LayoutParams.WRAP_CONTENT,100));
+	  		}
+	        //finish();
+	    	
 	      }
 	   }
 	}

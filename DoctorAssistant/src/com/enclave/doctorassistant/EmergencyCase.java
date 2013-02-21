@@ -48,11 +48,8 @@ public class EmergencyCase extends Activity implements  OnClickListener{
 	         // Handle successful scan
 	    	  String result=intent.getStringExtra("SCAN_RESULT").toString();
 	    	  try {
-	    			JSONObject json=new JSONObject(result);
-	    			
-	    	JSONArray patient = json.getJSONArray("patient");
-				JSONObject c = patient.getJSONObject(0);
-			this.patientID.setText(c.getString("id"));
+	    			JSONObject c=new JSONObject(result);
+	    	this.patientID.setText(c.getString("id"));
 			String allergys =c.getString("allergy").replace("|", "<br/>");
 			String chronic=c.getString("chronic").replace("|", "<br/>");
 			String taking =c.getString("taking").replace("|", "<br/>");
