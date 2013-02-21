@@ -1,11 +1,14 @@
 package com.enclave.doctorassistant;
 
+import org.apache.http.Header;
+
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
@@ -17,13 +20,15 @@ public class BloodTestDetail extends Activity {
 
 	TableLayout tblResult;
 	Button BackBtn;
-	TextView patientID, date, age;
+	TextView patientID, date, age,HEADER;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.blood_test_detail);
+		HEADER=(TextView)findViewById(R.id.header_text);
+		
 		BackBtn = (Button) findViewById(R.id.backbtn);
 		BackBtn.setOnClickListener(new OnClickListener() {
 
@@ -56,23 +61,29 @@ public class BloodTestDetail extends Activity {
 			tvStandard.setText(Standards[i]);
 			tvcomponent.setText(components[i]);
 			tvvalue.setText(values[i]);
-			
-			LayoutParams params=new LayoutParams(new LayoutParams(LayoutParams.FILL_PARENT,LayoutParams.WRAP_CONTENT,30));
-			params.rightMargin=1;
-			
+		
+			  LinearLayout.LayoutParams params=(LinearLayout.LayoutParams)HEADER.getLayoutParams();
+			  params.setMargins(0, 0, 2, 0);
 			if (i % 2 != 0)
-				trDetail.setBackgroundColor(Color.parseColor("#09FF00"));
-			//tvvalue.setLayoutParams(params);
+			{
+				tvvalue.setBackgroundColor(Color.parseColor("#09FF00"));
+				tvcomponent.setBackgroundColor(Color.parseColor("#09FF00"));
+				tvStandard.setBackgroundColor(Color.parseColor("#09FF00"));
+			}
+			//tvvalue.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT,
+				//	LayoutParams.WRAP_CONTENT, 30));
+			tvvalue.setLayoutParams(params);
 			tvvalue.setGravity(Gravity.CENTER);
-			
-			//tvcomponent.setLayoutParams(params);
+			tvcomponent.setLayoutParams(params);
+			//tvcomponent.setGravity(Gravity.CENTER);
 
 			tvStandard.setLayoutParams(new LayoutParams(
 					LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT, 40));
 			tvStandard.setGravity(Gravity.CENTER);
 			
-			trDetail.addView(tvcomponent,params);
-			trDetail.addView(tvvalue,params);
+			trDetail.addView(tvcomponent);
+			trDetail.addView(tvvalue);
+			
 			trDetail.addView(tvStandard);
 			tblResult.addView(trDetail, new TableLayout.LayoutParams(
 					LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT, 100));
