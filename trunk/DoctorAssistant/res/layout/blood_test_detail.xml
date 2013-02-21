@@ -12,7 +12,7 @@
     android:background="@drawable/bar" >
 
     <Button
-        android:id="@+id/backbtn2"
+        android:id="@+id/backbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
