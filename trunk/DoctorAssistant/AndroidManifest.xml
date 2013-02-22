@@ -14,7 +14,7 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
+        android:label="@string/label_app_name"
         android:theme="@style/AppTheme" 
         >
           
@@ -35,7 +35,7 @@
 			 
         <activity
             android:name="com.enclave.doctorassistant.Menu"
-            android:label="@string/app_name" 
+            android:label="@string/label_app_name" 
              android:screenOrientation="portrait">
        
             <intent-filter>
@@ -47,33 +47,33 @@
         
         <activity
             android:name="com.enclave.doctorassistant.EmergencyCase"
-            android:label="@string/emergency_case" 
+            android:label="@string/label_emergency_case" 
             android:screenOrientation="portrait">
         </activity>
          <activity
             android:name="com.enclave.doctorassistant.TreatmentCase"
-            android:label="@string/treatment_case" 
+            android:label="@string/label_treatment_case" 
             android:screenOrientation="portrait">
         </activity>
                  <activity
             android:name="com.enclave.doctorassistant.BloodTestDetail"
-            android:label="@string/treatment_case" 
+            android:label="@string/label_blood_detail" 
             android:screenOrientation="portrait">
         </activity>
                          <activity
             android:name="com.enclave.doctorassistant.XrayScanDetail"
-            android:label="@string/treatment_case" 
+            android:label="@string/label_xray_detail" 
             android:screenOrientation="portrait">
              </activity>
             <activity
             android:name="com.enclave.doctorassistant.RecordDetail"
-            android:label="@string/treatment_case" 
+            android:label="@string/label_hospitalization" 
             android:screenOrientation="portrait">
         </activity>
         
                         <activity
             android:name="com.enclave.doctorassistant.AboutUs"
-            android:label="@string/treatment_case" 
+            android:label="@string/label_treatment_case" 
             android:screenOrientation="portrait">
         </activity>
     </application>

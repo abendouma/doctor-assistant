@@ -1,6 +1,7 @@
 package com.enclave.doctorassistant;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +19,10 @@ public class RecordDetail extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.record_detail);
 		patientID = (TextView) findViewById(R.id.tvPatientID);
+		
+		TextView title=(TextView) findViewById(android.R.id.title);
+	    View titleBar = (View) title.getParent();
+        titleBar.setBackgroundColor(Color.RED);
 		
 		Age=(TextView)findViewById(R.id.tvPatientAge);
 		Age.setText(this.getIntent().getStringExtra("Age"));

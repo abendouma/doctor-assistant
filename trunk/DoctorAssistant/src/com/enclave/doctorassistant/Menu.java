@@ -5,6 +5,8 @@ import java.util.HashMap;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 public class Menu extends Activity {
 
@@ -37,6 +40,12 @@ public class Menu extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main_menu);
+		
+		TextView title=(TextView) findViewById(android.R.id.title);
+	    View titleBar = (View) title.getParent();
+        titleBar.setBackgroundColor(Color.RED);
+        
+        
 		lvMenu = (ListView) findViewById(R.id.lvMenu);
 		SimpleAdapter ad = new SimpleAdapter(this, menuArray,
 				R.layout.menu_list, new String[] { "Icon", "Title", "Hint" },
