@@ -9,7 +9,8 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="52dp"
-        android:background="@drawable/bar" >
+        android:background="@drawable/bar"
+        android:orientation="horizontal" >
 
         <Button
             android:id="@+id/backbtn"
@@ -17,8 +18,25 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:background="@drawable/back"
-            android:gravity="center_vertical" >
+            android:gravity="left" >
         </Button>
+            <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="52dp"
+        android:background="@drawable/bar"
+                 android:gravity="right" 
+                 
+        android:orientation="horizontal" >
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rescanbtn"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="2dp"
+            android:background="@drawable/rescan"
+   >
+        </Button>
+        </LinearLayout>
     </LinearLayout>
 
     <View

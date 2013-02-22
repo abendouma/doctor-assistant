@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
@@ -27,6 +26,11 @@ public class BloodTestDetail extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.blood_test_detail);
+		
+		TextView title=(TextView) findViewById(android.R.id.title);
+	    View titleBar = (View) title.getParent();
+        titleBar.setBackgroundColor(Color.RED);
+        
 		HEADER=(TextView)findViewById(R.id.header_text);
 		
 		BackBtn = (Button) findViewById(R.id.backbtn);
@@ -70,12 +74,9 @@ public class BloodTestDetail extends Activity {
 				tvcomponent.setBackgroundColor(Color.parseColor("#09FF00"));
 				tvStandard.setBackgroundColor(Color.parseColor("#09FF00"));
 			}
-			//tvvalue.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT,
-				//	LayoutParams.WRAP_CONTENT, 30));
 			tvvalue.setLayoutParams(params);
 			tvvalue.setGravity(Gravity.CENTER);
 			tvcomponent.setLayoutParams(params);
-			//tvcomponent.setGravity(Gravity.CENTER);
 
 			tvStandard.setLayoutParams(new LayoutParams(
 					LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT, 40));

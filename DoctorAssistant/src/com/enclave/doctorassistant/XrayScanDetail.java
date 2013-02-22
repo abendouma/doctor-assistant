@@ -3,6 +3,7 @@ package com.enclave.doctorassistant;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -27,8 +28,14 @@ public class XrayScanDetail extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.xray_detail);
+		
+		TextView title=(TextView) findViewById(android.R.id.title);
+	    View titleBar = (View) title.getParent();
+        titleBar.setBackgroundColor(Color.RED);
+		
 		Date = (TextView) findViewById(R.id.tvdate);
 		Date.setText(this.getIntent().getStringExtra("Date"));
+		
 		
 		Age=(TextView)findViewById(R.id.tvPatientAge);
 		Age.setText(this.getIntent().getStringExtra("Age"));

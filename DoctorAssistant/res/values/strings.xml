@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Medical Assistance</string>
-    <string name="emergency_case">Emergency case</string>
-    <string name="treatment_case">Treatment case</string>
+    <string name="label_app_name">Medical Assistance</string>
+    <string name="label_emergency_case">Emergency case</string>
+    <string name="label_treatment_case">Treatment case</string>
     <string name="menu_settings">About Us</string>
     <string name="date">Date</string>
     <string name="action">Action</string>
@@ -11,6 +11,10 @@
     <string name="patient_name">Patient Name: </string>
     <string name="patient_age">Patient Age: </string>
     <string name="doctor_coment">Doctor Comment:</string>
-    <string name="about_us">Copyright © 2012 Enclave</string>
+    <string name="about_us">Copyright © 2013 Enclave</string>
+    <string name="label_xray_detail">Xray Scan Result</string>
+    <string name="label_blood_detail">Blood Test Result</string>
+    <string name="label_hospitalization">Hospitalization</string>
+    <string name="label_about_us">About Us</string>
 
 </resources>

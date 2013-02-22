@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.text.Html;
 import android.view.Menu;
 import android.view.View;
@@ -18,7 +19,7 @@ import android.widget.TextView;
 
 public class EmergencyCase extends Activity implements OnClickListener {
 
-	Button backbtn;
+	Button backbtn,rescanbtn;
 
 	TextView tv, patientID, chronic, allergy, drug, age;
 
@@ -28,7 +29,13 @@ public class EmergencyCase extends Activity implements OnClickListener {
 		setContentView(R.layout.emergency_case);
 		backbtn = (Button) findViewById(R.id.backbtn);
 		backbtn.setOnClickListener(this);
-
+		rescanbtn=(Button)findViewById(R.id.rescanbtn);
+		rescanbtn.setOnClickListener(this);
+		
+		TextView title=(TextView) findViewById(android.R.id.title);
+	    View titleBar = (View) title.getParent();
+        titleBar.setBackgroundColor(Color.RED);
+		
 		chronic = (TextView) findViewById(R.id.chronic);
 		allergy = (TextView) findViewById(R.id.allergy);
 		drug = (TextView) findViewById(R.id.drug);
@@ -80,6 +87,11 @@ public class EmergencyCase extends Activity implements OnClickListener {
 		switch (v.getId()) {
 		case R.id.backbtn:
 			finish();
+			break;
+		case R.id.rescanbtn:
+			Intent intent = new Intent("com.google.zxing.client.android.SCAN");
+			intent.putExtra("SCAN_MODE", "QR_CODE_MODE");
+			startActivityForResult(intent, 1);
 			break;
 		}
 	}

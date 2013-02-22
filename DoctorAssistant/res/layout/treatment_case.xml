@@ -11,14 +11,32 @@
         android:layout_height="52dp"
         android:background="@drawable/bar" >
 
-        <Button
-            android:id="@+id/backbtn2"
+         <Button
+            android:id="@+id/backbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:background="@drawable/back"
-            android:gravity="center_vertical" >
+            android:gravity="left" >
         </Button>
+            <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="52dp"
+        android:background="@drawable/bar"
+           android:gravity="right"     
+        android:orientation="horizontal" >
+        
+        <Button
+              android:id="@+id/rescanbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="2dp"
+            android:background="@drawable/rescan"
+   >
+        </Button>
+        </LinearLayout>
     </LinearLayout>
 
     <View
@@ -120,14 +138,14 @@
                     android:id="@+id/tableRow3"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="1dp"
                     android:weightSum="100" >
 
                     <TextView
+                         android:id="@+id/datetr"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:layout_margin="1dp"
+                        android:layout_marginRight="2dp"
                         android:layout_weight="25"
                         android:background="#BDBDBD"
                         android:gravity="center_horizontal"

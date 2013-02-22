@@ -13,17 +13,17 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.TableRow.LayoutParams;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TableRow.LayoutParams;
 import android.widget.TextView;
 
 public class TreatmentCase extends Activity implements OnClickListener {
  
 	TableLayout tlrecent;
-	Button BackBtn;
-	TextView patientID, drug, allergy, chronic, age;
+	Button backbtn,rescanbtn;
+	TextView patientID, drug, allergy, chronic, age,datetr;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +31,19 @@ public class TreatmentCase extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.treatment_case);
 		tlrecent = (TableLayout) findViewById(R.id.tab);
-		BackBtn = (Button) findViewById(R.id.backbtn2);
-		BackBtn.setOnClickListener(this);
-
+		backbtn = (Button) findViewById(R.id.backbtn);
+		backbtn.setOnClickListener(this);
+		
+		rescanbtn=(Button)findViewById(R.id.rescanbtn);
+		rescanbtn.setOnClickListener(this);
+		
+		TextView title=(TextView) findViewById(android.R.id.title);
+	    View titleBar = (View) title.getParent();
+        titleBar.setBackgroundColor(Color.RED);
+		
+		datetr=(TextView)findViewById(R.id.datetr);
+		
+		
 		patientID = (TextView) findViewById(R.id.tvPatientID);
 		age = (TextView) findViewById(R.id.tvPatientAge);
 		drug = (TextView) findViewById(R.id.drug);
@@ -54,16 +64,19 @@ public class TreatmentCase extends Activity implements OnClickListener {
 			else
 				tvAction.setText("Xray Scan");
 			if (i % 2 != 0)
-				trDetail.setBackgroundColor(Color.GRAY);
-
-			tv.setLayoutParams(new LayoutParams(
-					LayoutParams.FILL_PARENT,
-					LayoutParams.WRAP_CONTENT, 25));
+			{
+				tv.setBackgroundColor(Color.GRAY);
+				tvAction.setBackgroundColor(Color.GRAY);
+			}
+			
+			LinearLayout.LayoutParams params=(LinearLayout.LayoutParams)datetr.getLayoutParams();
+			params.setMargins(0, 0, 1, 0);
+			tv.setLayoutParams(params);
 			tv.setGravity(Gravity.CENTER);
-			tvAction.setLayoutParams(new LayoutParams(
-					LayoutParams.FILL_PARENT,
-					LayoutParams.WRAP_CONTENT, 75));
+			tvAction.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT, 70));
 			tvAction.setGravity(Gravity.CENTER);
+			
+			
 			trDetail.addView(tv);
 			trDetail.addView(tvAction);
 
@@ -98,9 +111,9 @@ public class TreatmentCase extends Activity implements OnClickListener {
 
 		}
 		
-//		Intent intent = new Intent("com.google.zxing.client.android.SCAN");
-//		intent.putExtra("SCAN_MODE", "QR_CODE_MODE");
-//		startActivityForResult(intent, 1);
+		Intent intent = new Intent("com.google.zxing.client.android.SCAN");
+		intent.putExtra("SCAN_MODE", "QR_CODE_MODE");
+		startActivityForResult(intent, 1);
 
 	}
 
@@ -143,8 +156,13 @@ public class TreatmentCase extends Activity implements OnClickListener {
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
-		case R.id.backbtn2:
+		case R.id.backbtn:
 			finish();
+			break;
+		case R.id.rescanbtn:
+			Intent intent = new Intent("com.google.zxing.client.android.SCAN");
+			intent.putExtra("SCAN_MODE", "QR_CODE_MODE");
+			startActivityForResult(intent, 1);
 			break;
 		}
 	}
