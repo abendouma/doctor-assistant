@@ -90,6 +90,13 @@
                             android:layout_gravity="center_vertical"
                             android:gravity="center"
                             android:text="@string/patient_age" />
+                     <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:gravity="center"
+                            android:text="Blood Type: " />
+                    
                     </LinearLayout>
 
                     <LinearLayout
@@ -109,6 +116,13 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical" />
+                        <TextView
+                            android:id="@+id/tvbloodtype"
+                            android:layout_width="wrap_content"
+                           android:text="A"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical" />
+                
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
