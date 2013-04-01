@@ -23,7 +23,7 @@ public class TreatmentCase extends Activity implements OnClickListener {
  
 	TableLayout tlrecent;
 	Button backbtn,rescanbtn;
-	TextView patientID, drug, allergy, chronic, age,datetr;
+	TextView blood,patientID, drug, allergy, chronic, age,datetr;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -132,11 +132,12 @@ public class TreatmentCase extends Activity implements OnClickListener {
 					String chronic = c.getString("chronic").replace("|",
 							"<br/>");
 					String taking = c.getString("taking").replace("|", "<br/>");
+					this.blood.setText(c.getString("blood"));
 					this.age.setText(c.getString("age"));
 					this.allergy.setText(Html.fromHtml(allergys));
 					this.chronic.setText(Html.fromHtml(chronic));
 					this.drug.setText(Html.fromHtml(taking));
-
+					
 					
 
 				} catch (JSONException e) {

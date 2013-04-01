@@ -21,7 +21,7 @@ public class EmergencyCase extends Activity implements OnClickListener {
 
 	Button backbtn,rescanbtn;
 
-	TextView tv, patientID, chronic, allergy, drug, age;
+	TextView tv,blood, patientID, chronic, allergy, drug, age;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +32,7 @@ public class EmergencyCase extends Activity implements OnClickListener {
 		rescanbtn=(Button)findViewById(R.id.rescanbtn);
 		rescanbtn.setOnClickListener(this);
 		
+		
 		TextView title=(TextView) findViewById(android.R.id.title);
 	    View titleBar = (View) title.getParent();
         titleBar.setBackgroundColor(Color.RED);
@@ -41,6 +42,7 @@ public class EmergencyCase extends Activity implements OnClickListener {
 		drug = (TextView) findViewById(R.id.drug);
 		age = (TextView) findViewById(R.id.tvPatientAge);
 		patientID = (TextView) findViewById(R.id.tvPatientID);
+		blood=(TextView)findViewById(R.id.tvbloodtype);
 
 		Intent intent = new Intent("com.google.zxing.client.android.SCAN");
 		intent.putExtra("SCAN_MODE", "QR_CODE_MODE");
@@ -62,6 +64,7 @@ public class EmergencyCase extends Activity implements OnClickListener {
 					String chronic = c.getString("chronic").replace("|",
 							"<br/>");
 					String taking = c.getString("taking").replace("|", "<br/>");
+					this.blood.setText(c.getString("blood"));
 					this.age.setText(c.getString("age"));
 					this.allergy.setText(Html.fromHtml(allergys));
 					this.chronic.setText(Html.fromHtml(chronic));
