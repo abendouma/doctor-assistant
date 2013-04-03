@@ -1,5 +1,4 @@
-{ "id":"12345" , "age":"22", "allergy":"Allergy 1|Allergy 2",
-"chronic":"Diabetes|Heart disease|Asthma|High Blood Pressure ", "taking":"Penicilins" }
+{"id":"12345","age":"22","allergy":"Allergy 1|Allergy 2","chronic":"Diabetes|Heart disease|Asthma|High Blood Pressure","taking":"Penicilins","blood":"O"}
 
 Example
 [http://code.google.com/p/doctor-assistant/ https://lh3.googleusercontent.com/-RJE4VBHyxVM/USSFn4G3kPI/AAAAAAAAAiE/246FHyJ0Qo0/ImgPluz.com-chart.png]
